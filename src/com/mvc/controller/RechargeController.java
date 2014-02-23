@@ -1,6 +1,7 @@
 package com.mvc.controller;
 
 import javax.servlet.http.Cookie;
+import java.math.BigDecimal;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -82,6 +83,9 @@ public class RechargeController {
 				if(babflag == null){
 					bab.setUid(uid);
 					bab.setAb_cny(bro.getBro_recharge_acount());
+					if(bab.getAb_btc()==null){
+						bab.setAb_btc(new BigDecimal(0.0000));
+					}
 					rs.saveAccount_Book(bab);
 				}else{
 					bab = rs.getByUidForAcount(uid);

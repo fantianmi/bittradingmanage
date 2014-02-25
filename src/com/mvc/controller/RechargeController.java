@@ -76,6 +76,7 @@ public class RechargeController {
 			for(int i=0;i<bro_id.length;i++){
 				bro = rs.getByBroIdForOrders(Integer.parseInt(bro_id[i]));
 				bro.setBro_state(1);
+				bro.setBro_remark("已充值"+bro.getBro_recharge_acount()+"到您的平台账户");
 				rs.updateRechargeCNY_Order(bro);
 				bro = rs.getByBroIdForOrders(Integer.parseInt(bro_id[i]));
 				int uid = bro.getUid();
